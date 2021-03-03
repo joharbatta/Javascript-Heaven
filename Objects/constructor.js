@@ -7,6 +7,6 @@ function Circle(radius) {
     console.log('draw',radius);
   }
 }
-//when we use new keyword it creates new empty obj of circle 
+//when we use new keyword it creates new empty obj of circle like Circle.call({},args)
 const circle = new Circle(1);
 circle.draw();
