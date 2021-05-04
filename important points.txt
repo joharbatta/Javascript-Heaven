@@ -1,0 +1,11 @@
+-- when we run js code global execution context will create in call stack and it has global object(window) and this keyboard
+where window==this
+
+---HOISTING
+Only var and function are hoisted when code will run it only see for var and function | and allocated memory in memory heap
+cosnt and let are not hoisted
+var - partially hoisted (undefined)
+func - fully hoisted
+
+hoisting happens every execution context any time we run a function a new execution context gets created 
+we have to go through creation and execution phase again
