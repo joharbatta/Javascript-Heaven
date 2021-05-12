@@ -115,3 +115,33 @@ function f(a, b) {
 }
 
 f.defer(1000)(1, 2); // shows 3 after 1 sec
+
+
+//------------------------------------
+
+//bind using call and apply (closure and prototype)
+
+Function.prototype.bind = function(obj){
+    var fxn=this;
+     console.log(fxn);
+    // return function(){
+    //     return fxn.apply(obj,arguments);
+    // }
+     return function(...args){
+         console.log(args,...args);
+        return fxn.call(obj,...args);
+    }
+}
+
+const obj={
+    name:"johar",
+    getname(a,b){
+       return this.name+a+b;
+    }
+}
+
+const obj1={
+    name:"charu",
+}
+
+console.log(obj.getname.bind(obj1)(1,2));
