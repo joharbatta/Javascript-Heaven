@@ -30,3 +30,41 @@ lizard.__proto__ = dragon;
 dragon.isPrototypeOf(lizard);
 console.log(lizard.fire)
 console.log(lizard.sing())
+
+
+for(let prop in lizard){
+    console.log(prop);
+}
+// name
+// fight
+// fire
+// sing
+for(let prop in lizard){
+    if(lizard.hasOwnProperty(prop)){
+        console.log(prop);
+    }
+}
+// name
+// fight
+
+
+
+//Every Prototype chain links to a prototype object{}
+function multiplyBy5(num) {
+  return num*5
+}
+
+//       Object
+//  Array     Function
+
+// when we create mutiplyby5 func we have __proto__ that links upto the function protype and fxn __proto__ get links to base Object prototype
+// mutiplyby5 prototype,__proto__---------->Function prototype-->__proto__--->Object prototype--->__proto__--->null
+
+// __proto__------->Prototype
+multiplyBy5.__proto__
+Function.prototype
+multiplyBy5.__proto__.__proto__
+Object.prototype
+multiplyBy5.__proto__.__proto__.__proto__
+typeof Object
+typeof {}
