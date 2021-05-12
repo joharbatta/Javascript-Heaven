@@ -68,3 +68,29 @@ Object.prototype
 multiplyBy5.__proto__.__proto__.__proto__
 typeof Object
 typeof {}
+
+
+// Do without prototype
+var human = {mortal: true}
+var socrates = Object.create(human);
+human.isPrototypeOf(socrates); // true
+
+
+//some wierd shit
+
+-- Only Functions have prototype property
+
+typeof(Object) // function 
+typeof(Function) //function
+typeof(String) //function
+
+//but 
+var a={};
+typeof a //object
+function e(){
+
+} 
+typeof e //Function because only fxns have .prototype 
+
+
+//https://javascript.info/prototype-inheritance
