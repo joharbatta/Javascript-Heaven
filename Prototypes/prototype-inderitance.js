@@ -78,7 +78,7 @@ human.isPrototypeOf(socrates); // true
 
 //some wierd shit
 
--- Only Functions have prototype property
+-- Only Functions have prototype property but constrcuor fxns only use that properly
 
 typeof(Object) // function 
 typeof(Function) //function
