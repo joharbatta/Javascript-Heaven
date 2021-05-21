@@ -1,4 +1,4 @@
 # Javascript-Heaven
 All About Javascript  | OOPS 
 
-Closures | Inheritance
+Hoisting | Closures | Inheritance | Object Oriented Programming | Function Programming
