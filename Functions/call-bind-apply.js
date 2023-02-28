@@ -119,6 +119,21 @@ f.defer(1000)(1, 2); // shows 3 after 1 sec
 
 //------------------------------------
 
+// call polyfill
+Function.prototype.myCall = function(context={},...args){
+  context.fn = this;
+  context.fn(...args);
+}
+
+// call polyfill
+Function.prototype.myBind = function(context={},...args){
+  context.fn = this;
+  return function () {
+    return  context.fn(...args);
+  }
+}
+
+
 //bind using call and apply (closure and prototype)
 
 Function.prototype.bind = function(obj){
