@@ -137,3 +137,82 @@ const person4 = {
 }
 
 person4.hi()
+
+
+
+
+// const promise2 = new Promise((resolve, reject) => {
+//   setTimeout(reject, 1000, 'foo');
+// });
+
+// promise2
+// .then((res)=> console.log(res))
+// .catch((err)=> console.log(err))
+
+// johar batta
+
+function myPromise(executor){
+
+  let onResolve, onReject
+  let isFulfilled=false;
+  let isCalled=false;
+  let value=null;
+  function resolve(val){
+    isFulfilled=true;
+    value=val;
+    if(typeof onResolve ==='function'){
+       isCalled=true;
+       onResolve(val);
+    }
+  }
+  function reject(val){
+    onReject(val); 
+  }
+  this.then = function(callback){
+    console.log(callback,this)
+    onResolve = callback
+
+    if(isFulfilled && !isCalled){
+      onResolve(value);
+    }
+   return this;
+  }
+  this.catch = function(callback){
+    onReject = callback
+    return this;
+  }
+  executor(resolve,reject);
+}
+
+const promise3 = new myPromise((resolve, reject) => {
+  // setTimeout(resolve, 1000, 'foo');
+  // setTimeout(()=> resolve('food'),1000)
+  resolve('333')
+});
+
+promise3
+.then((res)=> console.log(res,this))
+// .then(())
+.catch((err)=> console.log(err))
+
+
+// new myPromise(function(resolve, reject) {
+
+//   setTimeout(() => resolve(1), 1000); // (*)
+
+// }).then(function(result) { // (**)
+
+//   alert(result); // 1
+//   return result * 2;
+
+// }).then(function(result) { // (***)
+
+//   alert(result); // 2
+//   return result * 2;
+
+// }).then(function(result) {
+
+//   alert(result); // 4
+//   return result * 2;
+
+// });
